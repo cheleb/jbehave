@@ -1,0 +1,54 @@
+grammar org.jbehave.ide.eclipse.JBehaveStory with org.eclipse.xtext.common.Terminals
+
+generate jBehaveStory "http://www.jbehave.org/ide/eclipse/JBehaveStory"
+
+Model:
+	(description=MainDescription)?
+	(na=Narrative)?
+	(scenarii+=Scenario)+;
+
+Narrative:
+	'Narrative:'
+	(description=Description)? 
+	(iot=InOrderTo
+	 asa=AsA
+	 iwt=IWantTo);
+
+Description:
+	(ID | WS)+ ;
+
+MainDescription:
+	(ID | WS | '.')+ '.';
+
+InOrderTo:
+	'In order to' todo=Description;
+
+AsA:
+	'As a' a=Description;
+
+IWantTo:
+	'I want to' w=Description;
+
+Scenario:
+	'Scenario:' (name=Description)?
+	(givenStories=GivenStories)?
+	(steps+=Step)+;
+
+Step:
+	(ssw=StepStartingWord sc=StepContent);
+
+StepStartingWord:
+	w=("Given" | "When" | "Then" | "And" | "!--");
+
+StepContent:
+	c=Description;
+
+GivenStories:
+	'GivenStories:';
+
+	//terminal Entry: (!('\r'|'\n'|';'))+;
+terminal NL:
+	('\r')? '\n';
+
+terminal TAB:
+	('\t')+;

@@ -1,0 +1,5 @@
+import org::jbehave::ide::eclipse::jBehaveStory;
+
+sortedGreetings(Model this) :
+	this.description;
+	//this.elements.sortBy(g|g.name.toLowerCase());

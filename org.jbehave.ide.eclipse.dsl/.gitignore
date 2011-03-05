@@ -1,0 +1,7 @@
+bin/
+.classpath
+.project
+.settings/
+src-gen/
+.antlr-generator-3.0.1.jar
+plugin.xml_gen

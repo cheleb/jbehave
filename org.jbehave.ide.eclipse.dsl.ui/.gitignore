@@ -1,0 +1,6 @@
+bin/
+.classpath
+.project
+.settings/
+src-gen/
+plugin.xml_gen
