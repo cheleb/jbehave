@@ -7,7 +7,7 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
-public class GridSteps { // Look, Ma', I'm a POJO!
+public class GridSteps  { // Look, Ma', I'm a POJO!
     
     private Game game;
     private StringRenderer renderer;
@@ -28,11 +28,9 @@ public class GridSteps { // Look, Ma', I'm a POJO!
     @Then("the grid should look like $grid")
     @Aliases(values={"the grid should be $grid"})
     public void theGridShouldLookLike(String grid) {
-    	System.out.println("->"+grid+"<-");
-    	System.out.println("->" + renderer.asString() + "<-");
-    	System.out.println("" + grid.equals(renderer.asString()));
         Assert.assertEquals(renderer.asString(), grid);
     }
+
 
 	
  
